@@ -31,7 +31,7 @@
   */
 
 /**
- * Calculates the distance between 2 coordinates.
+ * Calculates the Euclidean distance between 2 coordinates.
  *
  * @function
  * @param {Number} x1 The first coordinate's x-value.
@@ -41,7 +41,7 @@
  * @returns {Number} The distance between the 2 coordinates.
  */
 exports.dist = function (x1, y1, x2, y2){
-  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+  return Math.hypot(x2 - x1, y2 - y1);
 };
 
 /**
@@ -110,8 +110,8 @@ exports.circleArea = function (radius){
  * Returns a random float in a given range.
  *
  * @function
- * @param {Number} min The minimum value of the random float.
- * @param {Number} max The maximum value of the random float.
+ * @param {Number} min The minimum (inclusive) value of the random float.
+ * @param {Number} max The maximum (exclusive) value of the random float.
  * @returns {Number} The random float.
  */
 exports.randFloat = function (min, max) {
@@ -122,11 +122,12 @@ exports.randFloat = function (min, max) {
  * Returns a random integer in a given range.
  *
  * @function
- * @param {Number} min The minimum value of the random integer.
- * @param {Number} max The maximum value of the random integer.
+ * @param {Number} min The minimum (inclusive) value of the random integer.
+ * @param {Number} max The maximum (exclusive) value of the random integer.
  * @returns {Number} The random integer.
  */
 exports.randInt = function (min, max) {
   min = Math.ceil(min);
-  return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + min;
+  return Math.floor(Math.random() * (Math.floor(max) - min + 1)) + min;
 };
+ 
